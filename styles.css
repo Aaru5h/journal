@@ -469,6 +469,52 @@ footer {
     text-decoration: underline;
 }
 
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 90;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification.success {
+    background-color: var(--success);
+}
+
+.notification.error {
+    background-color: var(--danger);
+}
+
+.entry-content.show {
+    display: block;
+    max-height: 500px;
+}
+
+.no-entries {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;

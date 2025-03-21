@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindfulJournal - Your Personal Mental Health Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-book-heart"></i> MindfulJournal</h1>
+        <p>Your personal mental health companion</p>
+    </header>
+    
+    <div class="container">
+        <div class="mood-tracker">
+            <div class="mood-title">
+                <h2>How are you feeling today?</h2>
+                <span id="current-date"></span>
+            </div>
+            <div class="mood-emoji">
+                <button class="emoji-btn" data-mood="😔" title="Sad">😔</button>
+                <button class="emoji-btn" data-mood="😟" title="Worried">😟</button>
+                <button class="emoji-btn" data-mood="😐" title="Neutral">😐</button>
+                <button class="emoji-btn" data-mood="🙂" title="Good">🙂</button>
+                <button class="emoji-btn" data-mood="😊" title="Great">😊</button>
+            </div>
+            <div class="mood-labels">
+                <span>Sad</span>
+                <span>Worried</span>
+                <span>Neutral</span>
+                <span>Good</span>
+                <span>Great</span>
+            </div>
+            <p>You're feeling <span id="mood-today">...</span> today.</p>
+        </div>
+        
+        <div class="journal-entry">
+            <div class="journal-title">
+                <h2>Journal Entry</h2>
+                <span id="entry-time"></span>
+            </div>
+            
+            <input type="text" id="entry-title" placeholder="Give your entry a title...">
+            
+            <div class="prompt-container">
+                <h3>Need inspiration?</h3>
+                <div class="prompts-wrapper">
+                    <button class="prompt-btn" data-prompt="What made me smile today...">What made me smile today</button>
+                    <button class="prompt-btn" data-prompt="I'm feeling anxious about...">I'm feeling anxious about</button>
+                    <button class="prompt-btn" data-prompt="Three things I'm grateful for...">Gratitude list</button>
+                    <button class="prompt-btn" data-prompt="My self-care plan for today...">Self-care plan</button>
+                    <button class="prompt-btn" data-prompt="A goal I'm working towards...">Goals</button>
+                    <button class="prompt-btn" data-prompt="Today's small victories...">Today's victories</button>
+                </div>
+            </div>
+            
+            <textarea id="entry-content" placeholder="Write your thoughts here..."></textarea>
+            
+            <div class="action-btns">
+                <button class="btn btn-primary" id="save-entry">
+                    <i class="fas fa-save"></i> Save Entry
+                </button>
+                <button class="btn btn-secondary" id="clear-entry">
+                    <i class="fas fa-eraser"></i> Clear
+                </button>
+            </div>
+        </div>
+        
+        <div class="entries-list">
+            <div class="entries-header">
+                <h2>Past Entries</h2>
+                <div class="filter-container">
+                    <label for="mood-filter">Filter by mood:</label>
+                    <select id="mood-filter">
+                        <option value="all">All moods</option>
+                        <option value="😔">Sad</option>
+                        <option value="😟">Worried</option>
+                        <option value="😐">Neutral</option>
+                        <option value="🙂">Good</option>
+                        <option value="😊">Great</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="entries-container">
+                <!-- Journal entries will be loaded here -->
+            </div>
+            
+            <div class="entries-actions">
+                <button class="btn btn-danger" id="clear-all-entries">
+                    <i class="fas fa-trash-alt"></i> Clear All Entries
+                </button>
+                <button class="btn btn-secondary" id="export-entries">
+                    <i class="fas fa-file-export"></i> Export Entries
+                </button>
+            </div>
+            
+            <div class="insights">
+                <h3><i class="fas fa-chart-line"></i> Your Weekly Insights</h3>
+                <p id="insights-text">Start journaling to see your weekly insights.</p>
+                <div class="mood-chart-container">
+                    <canvas id="mood-chart"></canvas>
+                </div>
+                <p class="affirmation" id="affirmation">"I am growing stronger each day, even when I don't feel it."</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <h2><i class="fas fa-exclamation-triangle"></i> Are you sure?</h2>
+            <p>This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancel-action">Cancel</button>
+                <button class="btn btn-danger" id="confirm-action">Yes, I'm sure</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">
+        <span id="notification-message"></span>
+    </div>
+    
+    <footer>
+        <p>© 2025 MindfulJournal | Your data stays private and secure</p>
+        <div class="footer-links">
+            <a href="#" id="about-link">About</a>
+            <a href="#" id="privacy-link">Privacy</a>
+            <a href="#" id="help-link">Help</a>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
